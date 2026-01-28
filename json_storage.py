@@ -1,10 +1,16 @@
-# json_storage.py
+"""
+JSON Storage Layer
+Handles user-specific data persistence to JSON files.
+Each user gets their own file in data/ directory.
+"""
 import json
 import os
 
 def get_data_file_path(user_id: str) -> str:
-    """Generates a safe filename for the user's data from their user ID."""
-    # Sanitize email to create a safe filename, e.g., "testuser@gmail.com" -> "testuser_data.json"
+    """
+    Generates a safe filename for the user's data from their user ID.
+    Example: "testuser@gmail.com" -> "data/testuser_data.json"
+    """
     safe_filename = user_id.split('@')[0].replace('.', '_') + "_data.json"
     return os.path.join("data", safe_filename)
 

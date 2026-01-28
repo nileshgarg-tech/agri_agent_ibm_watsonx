@@ -1,0 +1,10 @@
+Create a .env file in the project root with these variables:
+
+WATSONX_URL=https://us-south.ml.cloud.ibm.com
+PROJECT_ID=your_project_id_here
+WATSONX_APIKEY=your_api_key_here
+
+Get credentials from:
+1. IBM Cloud account (cloud.ibm.com)
+2. Create WatsonX project → get PROJECT_ID
+3. Create API key from IAM → get WATSONX_APIKEY

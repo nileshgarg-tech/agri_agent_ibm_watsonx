@@ -1,15 +1,24 @@
-# workflows/query_flow.py
-
+"""
+QUERY Workflow
+Answers questions about logged data using RAG (Retrieval-Augmented Generation).
+Retrieves user's logs and provides them as context to LLM for accurate answers.
+"""
 import json
 from langchain_config import llm
 from json_storage import read_logs
 
 def query_flow(text: str, user_id: str) -> str:
     """
-    Answers a user's question by providing all existing logs to an LLM
-    as context (RAG pattern).
+    Answers questions about user's farm data using RAG pattern.
+    
+    Args:
+        text: User's question about their logged data
+        user_id: User identifier for data retrieval
+        
+    Returns:
+        Answer based on user's actual logged data
     """
-    # 1. Retrieve all logs
+    # Retrieve all user's logs for context
     logs = read_logs(user_id=user_id)
     if not logs:
         return "⚠️ No logs found. Please log some data first."

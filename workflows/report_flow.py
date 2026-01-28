@@ -1,15 +1,24 @@
-# workflows/report_flow.py
-
+"""
+REPORT Workflow
+Generates summaries and analytical reports from logged data.
+Uses RAG pattern to analyze all user logs and create formatted reports.
+"""
 import json
 from langchain_config import llm
 from json_storage import read_logs
 
 def report_flow(text: str, user_id: str) -> str:
     """
-    Generates a formatted text report by providing all existing logs to an
-    LLM as context (RAG pattern).
+    Generates formatted reports from user's farm data.
+    
+    Args:
+        text: User's report request (e.g., "sales report for this month")
+        user_id: User identifier for data retrieval
+        
+    Returns:
+        Formatted report with sections, totals, and summaries
     """
-    # 1. Retrieve all logs
+    # Retrieve all user's logs
     logs = read_logs(user_id=user_id)
     if not logs:
         return "⚠️ No logs found. Please log some data first."

@@ -1,4 +1,7 @@
-# app.py
+"""
+AgriAgent Streamlit Web Interface
+Provides a chat-based UI for the farming operations assistant.
+"""
 import streamlit as st
 from main import classifier_chain, log_flow, query_flow, report_flow, general_flow
 

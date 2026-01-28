@@ -3,10 +3,27 @@
 
 # Python virtual environment
 agri-env/
+agri-env-py311/
+venv/
+env/
 
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Data files
-data/farm_data.json 
+# Data files (user-specific)
+data/*.json
+*.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db 

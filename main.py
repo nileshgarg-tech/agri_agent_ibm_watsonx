@@ -1,5 +1,10 @@
-# agri-agent/main.py
+"""
+AgriAgent Main Entry Point
+Handles intent classification and workflow routing for farming assistant.
 
+Architecture:
+    User Input → Intent Classifier → Workflow Router → Specialized Workflow → Response
+"""
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -17,18 +22,19 @@ from workflows.query_flow import query_flow
 from workflows.report_flow import report_flow
 from workflows.general_flow import general_flow
 
-# 1. Load the routing prompt from file
+# === Intent Classification Setup ===
+# Load the routing prompt from file
 with open("routing_prompt.txt", "r", encoding="utf-8") as f:
     routing_template = f.read()
 
 routing_prompt = PromptTemplate.from_template(routing_template)
 
-# 2. Create a modern, reliable classifier chain
-# This pipes the prompt to the llm and then to a string parser.
+# Create classifier chain: Prompt → LLM → String Parser
+# Returns one of: LOG, QUERY, REPORT, or GENERAL
 classifier_chain = routing_prompt | llm | StrOutputParser()
 
 
-# 3. Main CLI loop with debug
+# === CLI Interface ===
 if __name__ == "__main__":
     # Ask for user email, with a default
     email_input = input("Enter your email to begin (or press Enter for testuser@gmail.com): ").strip()

@@ -1,4 +1,8 @@
-# workflows/log_flow.py
+"""
+LOG Workflow
+Extracts structured data from natural language and saves to user's log file.
+Example: "I sold 50 pounds of tomatoes for $75" → structured JSON entry
+"""
 import json
 import datetime as dt
 from langchain_config import llm
@@ -6,10 +10,16 @@ from json_storage import write_log
 
 def log_flow(text: str, user_id: str) -> str:
     """
-    Uses an LLM to extract structured data from a user's natural language
-    input and saves it as a JSON log entry.
+    Extracts structured farm activity data from natural language input.
+    
+    Args:
+        text: User's natural language description of farm activity
+        user_id: User identifier for data isolation
+        
+    Returns:
+        Confirmation message with logged activity details
     """
-    # 1. More robust extraction prompt
+    # Prompt LLM to extract structured fields from natural language
     prompt_template = '''You are a data entry assistant. From the user's statement, extract the key details into a structured JSON object.
 
 - "action": What did the user do? (e.g., 'harvest', 'sale', 'purchase', 'expense')

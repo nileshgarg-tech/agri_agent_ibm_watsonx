@@ -6,5 +6,45 @@
     "unit": "pounds",
     "value_usd": "21",
     "timestamp": "2025-06-29T14:10:09.665425"
+  },
+  {
+    "action": "sell",
+    "item": "wheat",
+    "quantity": 30,
+    "unit": "pounds",
+    "value_usd": 30,
+    "timestamp": "2025-06-29T15:13:56.859212"
+  },
+  {
+    "action": "sell",
+    "item": "tomatoes",
+    "quantity": 30,
+    "unit": "each",
+    "value_usd": 9000,
+    "timestamp": "2025-06-29T15:23:29.024703"
+  },
+  {
+    "action": "purchase",
+    "item": "tractor",
+    "quantity": 1,
+    "unit": "purchase",
+    "value_usd": 30000,
+    "timestamp": "2025-06-29T15:27:31.331372"
+  },
+  {
+    "action": "expense",
+    "item": "tractor",
+    "quantity": "500",
+    "unit": "gallons",
+    "value_usd": "2000",
+    "timestamp": "2025-06-29T15:28:18.098164"
+  },
+  {
+    "action": "purchase",
+    "item": "wheat",
+    "quantity": 37,
+    "unit": "kg",
+    "value_usd": 45,
+    "timestamp": "2025-06-29T15:35:47.719292"
   }
 ]

@@ -1,8 +1,19 @@
+"""
+GENERAL Workflow
+Handles conversational queries and general farming advice.
+No data access - uses LLM's base knowledge.
+"""
 from langchain_config import llm
 
 def general_flow(text: str) -> str:
     """
-    Answers a general knowledge question using the base LLM with a helpful persona.
+    Answers general farming questions using LLM's base knowledge.
+    
+    Args:
+        text: User's general question or conversational input
+        
+    Returns:
+        Helpful response for general queries, advice, or chitchat
     """
     prompt_template = """You are a helpful farm assistant. Provide a clear and concise answer to the user's question.
 
