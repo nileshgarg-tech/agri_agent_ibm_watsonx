@@ -1,16 +1,19 @@
 # AgriAgent
 
-AI assistant for small farms. Built with Python, LangChain, IBM WatsonX, and Streamlit.
+An interactive database for small farms. Log operations, query your data, and generate reports - all through natural language.
 
-> Built during IBM WatsonX Hackathon (June 2025) • Refactored & improved (January 2026)
+> Built during IBM WatsonX Hackathon (June 2025) • Refactored & improved (January 2026)  
+> **Version 0.1** - Simple, practical tool for daily farm operations
 
 ## What it does
 
-Routes natural language requests to 4 workflows:
-- **LOG** - Record farm activities (sales, purchases, harvests)
-- **QUERY** - Ask questions about logged data
-- **REPORT** - Generate summaries from logged data
-- **GENERAL** - General farming advice
+An AI-powered operations assistant that routes natural language requests to 4 workflows:
+- **LOG** - Record farm activities (sales, purchases, harvests, expenses)
+- **QUERY** - Ask questions about your logged data
+- **REPORT** - Generate weekly/monthly summaries and aggregations
+- **GENERAL** - General farming advice and conversations
+
+**Think of it as:** An interactive database where each farmer can log their operations and query them naturally, without SQL or spreadsheets.
 
 ## Setup
 
@@ -86,4 +89,6 @@ agri-agent/
 3. Workflow processes with specialized prompt
 4. Returns response
 
-Demonstrates intent-based routing architecture with enterprise LLM integration. Built to showcase working within IBM Cloud constraints and implementing production-ready AI patterns with WatsonX Granite models.
+**What makes it unique:** Intent-based routing with IBM WatsonX Granite models. Each farmer gets their own isolated data store (JSON files). Simple, practical, and built to work within IBM Cloud constraints.
+
+**Not fancy, but functional** - A working v0.1 that solves real problems for small farmers.
