@@ -17,7 +17,7 @@ def get_credentials():
         watsonx_url = st.secrets.get("WATSONX_URL") or os.getenv("WATSONX_URL")
         project_id = st.secrets.get("PROJECT_ID") or os.getenv("PROJECT_ID")
         apikey = st.secrets.get("WATSONX_APIKEY") or os.getenv("WATSONX_APIKEY")
-    except (ImportError, FileNotFoundError, AttributeError, RuntimeError):
+    except (ImportError, FileNotFoundError, AttributeError, RuntimeError, KeyError):
         # Streamlit not available or secrets not configured, use env vars
         watsonx_url = os.getenv("WATSONX_URL")
         project_id = os.getenv("PROJECT_ID")
@@ -25,13 +25,13 @@ def get_credentials():
     
     return watsonx_url, project_id, apikey
 
-# Initialize IBM Granite-13B LLM
+# Initialize IBM Granite-4-H-Small LLM
 # Using temperature=0.0 for deterministic, focused responses
 def get_llm():
     """Get or create the LLM instance with credentials"""
     watsonx_url, project_id, apikey = get_credentials()
     return WatsonxLLM(
-        model_id="ibm/granite-13b-instruct-v2",
+        model_id="ibm/granite-4-h-small",
         url=watsonx_url,
         project_id=project_id,
         apikey=apikey,

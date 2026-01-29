@@ -9,10 +9,10 @@ import os
 def check_credentials():
     """Check if IBM WatsonX credentials are available"""
     try:
-        watsonx_url = st.secrets.get("WATSONX_URL", os.getenv("WATSONX_URL"))
-        project_id = st.secrets.get("PROJECT_ID", os.getenv("PROJECT_ID"))
-        apikey = st.secrets.get("WATSONX_APIKEY", os.getenv("WATSONX_APIKEY"))
-    except (AttributeError, FileNotFoundError):
+        watsonx_url = st.secrets.get("WATSONX_URL") or os.getenv("WATSONX_URL")
+        project_id = st.secrets.get("PROJECT_ID") or os.getenv("PROJECT_ID")
+        apikey = st.secrets.get("WATSONX_APIKEY") or os.getenv("WATSONX_APIKEY")
+    except (AttributeError, FileNotFoundError, KeyError):
         watsonx_url = os.getenv("WATSONX_URL")
         project_id = os.getenv("PROJECT_ID")
         apikey = os.getenv("WATSONX_APIKEY")
