@@ -16,6 +16,9 @@ from langchain_core.output_parsers import StrOutputParser
 # Shared Watsonx LLM instance
 from langchain_config import get_llm_instance
 
+# Storage layer (SQLite)
+from db_storage import read_logs
+
 # Workflows
 from workflows.log_flow import log_flow
 from workflows.query_flow import query_flow

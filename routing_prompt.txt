@@ -26,7 +26,7 @@ Human: the soil test results came back
 AI: LOG
 
 INTENT: QUERY
-Description: Use this intent when the user asks a specific question about their own previously logged data. They are retrieving a specific fact or number.
+Description: Use this intent when the user asks a specific question about their own previously logged data. They are retrieving a specific fact or number. This includes questions about total revenue, total sales, earnings, income, expenses, or any calculations from their logged activities.
 
 Examples:
 Human: how many pounds of tomatoes did i sell last month?
@@ -48,6 +48,18 @@ AI: QUERY
 Human: how much did i spend on seeds in total?
 AI: QUERY
 Human: was the sale on the 15th for cash?
+AI: QUERY
+Human: how much total revenue did i make?
+AI: QUERY
+Human: what are my total sales?
+AI: QUERY
+Human: how much did i earn from tomatoes?
+AI: QUERY
+Human: what is my total income?
+AI: QUERY
+Human: show me my revenue from sales
+AI: QUERY
+Human: how much money did i make total?
 AI: QUERY
 
 INTENT: REPORT
