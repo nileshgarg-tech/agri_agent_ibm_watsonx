@@ -1,11 +1,13 @@
 # Environment variables
 .env
+.streamlit/secrets.toml
 
 # Python virtual environment
 agri-env/
 agri-env-py311/
 venv/
 env/
+test-venv/
 
 # Python cache
 __pycache__/

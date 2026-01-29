@@ -3,6 +3,27 @@ AgriAgent Streamlit Web Interface
 Provides a chat-based UI for the farming operations assistant.
 """
 import streamlit as st
+import os
+
+# Check if credentials are configured
+def check_credentials():
+    """Check if IBM WatsonX credentials are available"""
+    try:
+        watsonx_url = st.secrets.get("WATSONX_URL", os.getenv("WATSONX_URL"))
+        project_id = st.secrets.get("PROJECT_ID", os.getenv("PROJECT_ID"))
+        apikey = st.secrets.get("WATSONX_APIKEY", os.getenv("WATSONX_APIKEY"))
+    except (AttributeError, FileNotFoundError):
+        watsonx_url = os.getenv("WATSONX_URL")
+        project_id = os.getenv("PROJECT_ID")
+        apikey = os.getenv("WATSONX_APIKEY")
+    
+    if not all([watsonx_url, project_id, apikey]):
+        st.error("⚠️ IBM WatsonX credentials not configured!")
+        st.info("Please add your credentials to Streamlit Secrets or create a `.env` file. See ENV_SETUP.txt for details.")
+        st.stop()
+
+check_credentials()
+
 from main import classifier_chain, log_flow, query_flow, report_flow, general_flow
 
 # --- App Configuration ---

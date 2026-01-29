@@ -2,6 +2,8 @@
 
 AI assistant for small farms. Built with Python, LangChain, IBM WatsonX, and Streamlit.
 
+> Built during IBM WatsonX Hackathon (June 2025) • Refactored & improved (January 2026)
+
 ## What it does
 
 Routes natural language requests to 4 workflows:
@@ -38,15 +40,20 @@ See `EXAMPLES.md` for usage examples.
 
 ## Run
 
-**Web UI:**
+**Web UI (Local):**
 ```bash
 streamlit run app.py
 ```
+
+**Web UI (Deployed):**
+Visit: https://agri-agent-ibm-watsonx.streamlit.app
 
 **CLI:**
 ```bash
 python main.py
 ```
+
+See `DEPLOYMENT.md` for deployment instructions.
 
 ## Project Structure
 
@@ -79,4 +86,4 @@ agri-agent/
 3. Workflow processes with specialized prompt
 4. Returns response
 
-Built for IBM WatsonX hackathon. Demonstrates intent-based routing architecture with enterprise LLM integration.
+Demonstrates intent-based routing architecture with enterprise LLM integration. Built to showcase working within IBM Cloud constraints and implementing production-ready AI patterns with WatsonX Granite models.
