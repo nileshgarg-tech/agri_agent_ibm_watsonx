@@ -34,9 +34,23 @@ routing_prompt = PromptTemplate.from_template(routing_template)
 
 # Create classifier chain: Prompt → LLM → String Parser
 # Returns one of: LOG, QUERY, REPORT, or GENERAL
-# Initialize LLM lazily when chain is created
-llm = get_llm_instance()
-classifier_chain = routing_prompt | llm | StrOutputParser()
+# Lazy initialization - only create LLM when chain is actually used
+def get_classifier_chain():
+    """Get or create the classifier chain with lazy LLM initialization"""
+    llm = get_llm_instance()
+    return routing_prompt | llm | StrOutputParser()
+
+# For backwards compatibility, create a lazy wrapper
+class LazyClassifierChain:
+    def __init__(self):
+        self._chain = None
+    
+    def invoke(self, *args, **kwargs):
+        if self._chain is None:
+            self._chain = get_classifier_chain()
+        return self._chain.invoke(*args, **kwargs)
+
+classifier_chain = LazyClassifierChain()
 
 
 # === CLI Interface ===
