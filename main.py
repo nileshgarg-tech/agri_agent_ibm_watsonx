@@ -14,7 +14,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 # Shared Watsonx LLM instance
-from langchain_config import llm
+from langchain_config import get_llm_instance
 
 # Workflows
 from workflows.log_flow import log_flow
@@ -31,6 +31,8 @@ routing_prompt = PromptTemplate.from_template(routing_template)
 
 # Create classifier chain: Prompt → LLM → String Parser
 # Returns one of: LOG, QUERY, REPORT, or GENERAL
+# Initialize LLM lazily when chain is created
+llm = get_llm_instance()
 classifier_chain = routing_prompt | llm | StrOutputParser()
 
 

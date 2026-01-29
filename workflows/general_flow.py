@@ -3,7 +3,7 @@ GENERAL Workflow
 Handles conversational queries and general farming advice.
 No data access - uses LLM's base knowledge.
 """
-from langchain_config import llm
+from langchain_config import get_llm_instance
 
 def general_flow(text: str) -> str:
     """
@@ -21,4 +21,5 @@ User Question: {question}
 
 Answer:"""
     prompt = prompt_template.format(question=text)
+    llm = get_llm_instance()
     return llm.invoke(prompt)

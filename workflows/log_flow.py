@@ -5,7 +5,7 @@ Example: "I sold 50 pounds of tomatoes for $75" → structured JSON entry
 """
 import json
 import datetime as dt
-from langchain_config import llm
+from langchain_config import get_llm_instance
 from json_storage import write_log
 
 def log_flow(text: str, user_id: str) -> str:
@@ -34,6 +34,7 @@ JSON:'''
     prompt = prompt_template.format(text=text)
 
     # 2. Invoke LLM and parse
+    llm = get_llm_instance()
     raw_json = llm.invoke(prompt)
     try:
         # The LLM sometimes returns a markdown code block

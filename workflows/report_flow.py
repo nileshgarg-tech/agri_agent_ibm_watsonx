@@ -4,7 +4,7 @@ Generates summaries and analytical reports from logged data.
 Uses RAG pattern to analyze all user logs and create formatted reports.
 """
 import json
-from langchain_config import llm
+from langchain_config import get_llm_instance
 from json_storage import read_logs
 
 def report_flow(text: str, user_id: str) -> str:
@@ -39,6 +39,7 @@ Based on the logs, here is the report:"""
     prompt = prompt_template.format(logs_json_string=logs_json_string, request=text)
 
     # 3. Get report from LLM
+    llm = get_llm_instance()
     report = llm.invoke(prompt)
     return report
 

@@ -4,7 +4,7 @@ Answers questions about logged data using RAG (Retrieval-Augmented Generation).
 Retrieves user's logs and provides them as context to LLM for accurate answers.
 """
 import json
-from langchain_config import llm
+from langchain_config import get_llm_instance
 from json_storage import read_logs
 
 def query_flow(text: str, user_id: str) -> str:
@@ -39,6 +39,7 @@ Based on the logs, here is the answer:"""
     prompt = prompt_template.format(logs_json_string=logs_json_string, question=text)
 
     # 3. Get answer from LLM
+    llm = get_llm_instance()
     answer = llm.invoke(prompt)
     return answer
 

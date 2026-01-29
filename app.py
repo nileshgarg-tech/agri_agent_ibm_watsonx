@@ -24,6 +24,7 @@ def check_credentials():
 
 check_credentials()
 
+# Import after credentials check
 from main import classifier_chain, log_flow, query_flow, report_flow, general_flow
 
 # --- App Configuration ---
